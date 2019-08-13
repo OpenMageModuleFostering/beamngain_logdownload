@@ -4,7 +4,7 @@
  * A Log controller, used to download the logs
  */
 class Beamngain_Logdownload_Adminhtml_Logdownload_LogController extends Mage_Core_Controller_Front_Action {
- 
+
     /**
      * Read log file
      */
@@ -43,21 +43,23 @@ class Beamngain_Logdownload_Adminhtml_Logdownload_LogController extends Mage_Cor
     public function checkAction() {
 
         $fileName = Mage::getStoreConfig('logdownload/general/log_file_name');
-        $filePath = Mage::getBaseDir('var') . "/log/" . $fileName;
-
-        if (file_exists($filePath)) {
-            if (is_readable($filePath)) {
-                echo Mage::helper('logdownload')->__('success');
-            } else {
-                echo Mage::helper('logdownload')->__('file is not readable.');                   
-            }
+        if (strpos($fileName, '..') > -1) {
+            echo Mage::helper('logdownload')->__('Please enter log filename only.');
         } else {
-           
-            echo Mage::helper('logdownload')->__('The provided file path is not valid.');        
-           
 
+            $filePath = Mage::getBaseDir('var') . "/log/" . $fileName;
+
+            if (file_exists($filePath)) {
+                if (is_readable($filePath)) {
+                    echo Mage::helper('logdownload')->__('success');
+                } else {
+                    echo Mage::helper('logdownload')->__('file is not readable.');
+                }
+            } else {
+
+                echo Mage::helper('logdownload')->__('The provided file path is not valid.');
+            }
         }
-
     }
 
     /**
@@ -70,27 +72,26 @@ class Beamngain_Logdownload_Adminhtml_Logdownload_LogController extends Mage_Cor
         $filePath = Mage::getBaseDir('var') . "/log/" . $fileName;
         $line_count_bottom = Mage::getStoreConfig('logdownload/general/log_count_bottom');
 
-        
+
         $fileSize = filesize($filePath);
         header("Content-type: text/plain");
         header("Cache-Control: private");
         header("Content-Disposition: attachment; filename=" . $fileName);
-        
+
         if ($line_count_bottom && (!$line_count_bottom == '')) {
             $fsize = round(filesize($filePath) / 1024 / 1024, 2);
             $lines = $this->read_file($filePath, $line_count_bottom);
             $output = '';
             foreach ($lines as $line) {
                 $output .= $line;
-            }                    
+            }
             echo $output;
         } else {
-            
+
             // Output file.
             readfile($filePath);
             exit();
         }
-      
     }
 
 }
