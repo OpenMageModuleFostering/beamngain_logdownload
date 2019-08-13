@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Beamngain_Logdownload>
+            <version>0.1.0</version>
+        </Beamngain_Logdownload>
+    </modules>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <logdownload before="Mage_Adminhtml">Beamngain_Logdownload_Adminhtml</logdownload>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <logdownload>
+                    <files>
+                        <default>logdownload.csv</default>
+                    </files>
+                </logdownload>
+            </modules>
+        </translate>
+    </adminhtml>
+    <global>
+        <helpers>
+            <logdownload>
+                <class>Beamngain_Logdownload_Helper</class>
+            </logdownload>
+        </helpers>
+     </global>
+     <default>
+     	<logdownload>
+     		<general>
+     			<log_file_name>system.log</log_file_name>
+     			<log_count_bottom>100</log_count_bottom>
+     		</general>
+     	</logdownload>
+     </default>
+</config>

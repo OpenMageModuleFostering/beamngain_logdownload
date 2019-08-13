@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Beamngain_Logdownload>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Beamngain_Logdownload>
+    </modules>
+</config>

@@ -1,0 +1,52 @@
+
+
+<script type="text/javascript">
+
+    //<![CDATA[
+
+    function download_log_file() {
+
+       ;
+
+        new Ajax.Request('<?php echo $this->getAjaxUrl() ?>', {
+
+            method:     'POST',
+
+            onSuccess: function(transport){
+
+                if(transport.status==200){
+
+                    if(transport.responseText == 'success'){
+                        window.location = '<?php echo $this->getDownloadUrl() ?>';
+                    } else {
+                        document.getElementById('feedStatus').innerHTML = transport.responseText;
+                        document.getElementById('error-msg').style.display = 'block';
+                    }
+                 return false;
+
+                }
+
+            },
+
+            onFailure: function(){
+
+                alert('error');
+
+            }
+
+        });
+
+    }
+
+    //]]>
+
+</script>
+
+<?php echo $this->getButtonHtml() ?>
+
+
+    <div id="error-msg" class="error-msg" style="display:none;padding: 10px;margin-top: 10px;">
+        <span class="feedStatus" id="feedStatus">
+            Success 
+        </span>
+    </div>

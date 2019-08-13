@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <logdownload_tab translate="label" module="logdownload">
+            <label>Beam and Gain Extensions</label>
+            <sort_order>10</sort_order>
+        </logdownload_tab>
+    </tabs>
+    <sections>
+        <logdownload translate="label" module="logdownload">
+            <label>Log Download</label>
+            <tab>logdownload_tab</tab>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+                    <fields>
+                        <log_file_name translate="label">
+                            <label>Name of log file</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Specify log file name and save before click download button.</comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>    
+                            <validate>required-entry</validate>   
+                        </log_file_name>
+                        <log_count_bottom translate="label">
+                            <label>Number of line</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Leave blank to download whole log file otherwise specify last number of lines before click download button.</comment>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>    
+                            <validate>validate-digits validate-greater-than-zero validate-not-negative-number validate-digits-range digits-range-10-500</validate>   
+                        </log_count_bottom>
+                        <log_download translate="label">
+                            <label>Download Log</label>
+                            <frontend_model>Beamngain_Logdownload_Block_Adminhtml_System_Config_Form_DownloadButton</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                                   
+                        </log_download>
+                    </fields>
+                </general>
+            </groups>
+        </logdownload>
+    </sections>
+</config>
