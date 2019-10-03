@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Beamngain_Logdownload",
+    "name": "openmage-module-fostering\/beamngain_logdownload",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Some bug fixes during download log file. Now it is properly downloading log files.",
     "authors": [
