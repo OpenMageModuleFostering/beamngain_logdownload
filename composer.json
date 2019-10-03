@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Beamngain_Logdownload",
+    "name": "OpenMageModuleFostering\/Beamngain_Logdownload",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
     "description": "Some bug fixes during download log file. Now it is properly downloading log files.",
     "authors": [
-    {
-        "name": "",
-        "email": "info@beamngain.com"
-    }
-],
+        {
+            "name": "",
+            "email": "info@beamngain.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
